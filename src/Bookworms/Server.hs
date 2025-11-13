@@ -33,7 +33,6 @@ import System.Directory
 import Text.Blaze
 import Text.Blaze.Html.Renderer.Utf8
 import Servant.Types.SourceT (source)
--- import qualified Data.Aeson.Parser
 import qualified Text.Blaze.Html
 
 type UserAPI1 = "users" :> Get '[JSON] [User]
@@ -64,4 +63,3 @@ app1 = serve userAPI server1
 
 runServer :: IO ()
 runServer = run 8081 app1
-
