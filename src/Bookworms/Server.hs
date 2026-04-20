@@ -37,21 +37,19 @@ import qualified Text.Blaze.Html
 
 type UserAPI1 = "users" :> Get '[JSON] [User]
 
-
--- this is a comment
-data User = User
-  { name :: String
-  , age :: Int
-  , email :: String
-  , registration_date :: Day
+data User = User {
+    name :: String,
+    age :: Int,
+    email :: String,
+    registration_date :: Day
   } deriving (Eq, Show, Generic)
 
 instance ToJSON User
 
 users1 :: [User]
-users1 =
-  [ User "Isaac Newton" 372 "isaac@newton.co.uk" (fromGregorian 1683 3 1)
-  , User "Albert Einstein" 136 "ae@mc2.org"      (fromGregorian 1905 21 1)
+users1 = [
+    User "Isaac Newton" 372 "isaac@newton.co.uk" (fromGregorian 1683 3 1),
+    User "Albert Einstein" 136 "ae@mc2.org"      (fromGregorian 1905 21 1)
   ]
 
 server1 :: Server UserAPI1
