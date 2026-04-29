@@ -10,6 +10,7 @@
 
 module Bookworms.Server where
 
+import Bookworms.Log (logDebug, logError, logInfo, logWarn)
 import Control.Monad.Except
 import Control.Monad.Reader
 import Data.Aeson
@@ -54,7 +55,14 @@ users1 =
   ]
 
 server1 :: Server UserAPI1
-server1 = return users1
+server1 = do
+  liftIO $ logDebug "Hello World!"
+  liftIO $ logInfo "Hello World! 2222"
+  liftIO $ logDebug "Hello World! 3333"
+  liftIO $ logWarn "Hello World! 4444"
+  liftIO $ logError "Hello World! 5555"
+  liftIO $ logDebug "Hello World! 6666"
+  return users1
 
 userAPI :: Proxy UserAPI1
 userAPI = Proxy

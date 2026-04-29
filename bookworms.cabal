@@ -10,7 +10,8 @@ executable bookworms
 
   main-is: Main.hs
   ghc-options: -threaded
-  other-modules: Bookworms.Server
+  other-modules: Bookworms.Server,
+    Bookworms.Log
   build-depends:
     aeson,
     attoparsec,
